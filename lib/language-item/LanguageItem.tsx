@@ -56,7 +56,7 @@ const LanguageItem: React.FC<ILanguageItemRequiredProps> = ({
       ]}
       onPress={() => onSelect && onSelect(item)}
     >
-      {imageComponent || (
+      {imageComponent ? React.cloneElement(imageComponent,{item}) : (
         <Image source={item.imageSource} style={styles.imageStyle} />
       )}
       <Text style={_titleStyle(textColor)}>{item.title}</Text>
